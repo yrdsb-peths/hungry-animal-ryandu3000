@@ -22,5 +22,18 @@ public class Bear extends Actor
         {
             move(1);
         }
+        
+        // Remove banana if bear eats it
+        eat();
+    }
+    
+    public void eat()
+    {
+        if(isTouching(Banana.class))
+        {
+            removeTouching(Banana.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.createBanana();
+        }
     }
 }

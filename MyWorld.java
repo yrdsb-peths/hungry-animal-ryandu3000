@@ -21,7 +21,18 @@ public class MyWorld extends World
         Bear bear = new Bear();
         addObject(bear, 300, 200);
         
+        createBanana();
+    }
+    
+    /**
+     * Create a new banana at random location at top the screen
+     */
+    
+    public void createBanana()
+    {
         Banana banana = new Banana();
-        addObject(banana, 300, 0);
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        addObject(banana, x, y);
     }
 }
