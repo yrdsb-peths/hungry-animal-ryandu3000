@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The Elephant who's always hungry.
+ * The Bear who's always hungry.
  * 
  * @author Ryan Du
  * @version November 2022

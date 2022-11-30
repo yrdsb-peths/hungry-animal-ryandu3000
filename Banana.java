@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The food to be eaten.
+ * Food for the bear.
  * 
  * @author Ryan Du
  * @version November 2022
@@ -15,5 +15,7 @@ public class Banana extends Actor
     public void act()
     {
         // Add your action code here.
+        setLocation(getX(), getY() + 1);
+        
     }
 }
