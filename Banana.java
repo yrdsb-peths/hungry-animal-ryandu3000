@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The Elephant who's always hungry.
+ * The food to be eaten.
  * 
  * @author Ryan Du
  * @version November 2022
  */
-public class Elephant extends Actor
+public class Banana extends Actor
 {
     /**
-     * Act - do whatever the Elephant wants to do. This method is called whenever
+     * Act - do whatever the Banana wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        move(1);
+        // Add your action code here.
     }
 }
