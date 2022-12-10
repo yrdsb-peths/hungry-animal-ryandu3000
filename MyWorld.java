@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The world the hungry elephant lives in.
+ * The world the hungry bear lives in.
  * 
  * @author Ryan Du
  * @version November 2022
