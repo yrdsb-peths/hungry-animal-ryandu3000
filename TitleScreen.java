@@ -7,7 +7,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version December 2022
  */
 public class TitleScreen extends World
-    Label titleLabel = new Label("Hungry Panda", 90);
+{
+    Label titleLabel = new Label("Hungry Panda", 80);
+    Label label = new Label("Press <space> to Start", 40);
+    Label label2 = new Label("Use \u2190 \u2192 to Move", 40);
+
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -16,10 +20,13 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        
-        addObject(titleLabel, getWidth()/2, getHeight()/2);
+
+        addObject(titleLabel, getWidth()/2, 100);
+        addObject(label, getWidth()/2,370);
+        addObject(label2,getWidth()/2,320);
+        prepare();
     }
-    
+
     /**
      * The main world act loop
      */
@@ -31,5 +38,19 @@ public class TitleScreen extends World
             MyWorld gameWorld = new MyWorld();
             Greenfoot.setWorld(gameWorld);
         }
+    }
+    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Bear bear = new Bear();
+        addObject(bear,433,233);
+        Banana banana = new Banana();
+        addObject(banana,221,229);
+        bear.setLocation(361,225);
+        banana.setLocation(231,225);
     }
 }
