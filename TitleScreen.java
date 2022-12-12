@@ -46,8 +46,8 @@ public class TitleScreen extends World
      */
     private void prepare()
     {
-        Bear bear = new Bear();
-        addObject(bear,352,240);
+        Panda panda = new Panda();
+        addObject(panda,352,240);
         Decoration decoration = new Decoration();
         addObject(decoration,238,233);
     }

@@ -1,19 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Food for the bear.
+ * Food for the panda.
  * 
  * @author Ryan Du
  * @version November 2022
  */
-public class Banana extends Actor
+public class Bamboo extends Actor
 {
     int speed = 1;
     
-    /**
-     * Act - do whatever the Banana wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
         // Add your action code here.

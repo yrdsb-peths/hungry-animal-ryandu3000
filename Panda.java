@@ -6,18 +6,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Ryan Du
  * @version November 2022
  */
-public class Bear extends Actor
+public class Panda extends Actor
 {
     GreenfootSound eatingSound = new GreenfootSound("eating.mp3");
     GreenfootImage[] frameLeft = new GreenfootImage[3];
     GreenfootImage[] frameRight = new GreenfootImage[3];
 
     
-    // Direction the elephant is facing
+    // Direction the panda is facing
     String facing = "left";
-        SimpleTimer animationTimer = new SimpleTimer();
+    SimpleTimer animationTimer = new SimpleTimer();
+    SimpleTimer cooldown = new SimpleTimer();
+    Boolean slideActive = false;
     
-    public Bear()
+    public Panda()
     {
         for(int i = 0; i < frameLeft.length; i++)
         {
@@ -34,12 +36,12 @@ public class Bear extends Actor
         
         animationTimer.mark();
         
-        // Initial elephant image
+        // Initial panda image
         setImage(frameLeft[0]);
     }
     
     int imageIndex = 0;
-    public void animateBear()
+    public void animatePanda()
     {
         if(animationTimer.millisElapsed() < 150)
         {
@@ -71,20 +73,46 @@ public class Bear extends Actor
             facing = "right";
         }
         
-        // Remove banana if bear eats it
+        
+        if(slideActive)
+        {
+            if(Greenfoot.isKeyDown("down"))
+            {
+                    if(facing.equals("right"))
+                    {
+                        move(20);
+                        slideActive = false;
+                    }
+                    else
+                    {
+                        move(-20);
+                        slideActive = false;
+                    }
+            }
+        }
+        else
+        {
+            cooldown.mark();
+            if(cooldown.millisElapsed() >= 500)
+            {
+                slideActive = true;
+            }
+        }
+        
+        // Remove bamboo if panda eats it
         eat();
         
-        // Anime the bear
-        animateBear();
+        // Animate the panda
+        animatePanda();
     }
     
     public void eat()
     {
-        if(isTouching(Banana.class))
+        if(isTouching(Bamboo.class))
         {
-            removeTouching(Banana.class);
+            removeTouching(Bamboo.class);
             MyWorld world = (MyWorld) getWorld();
-            world.createBanana();
+            world.createBamboo();
             world.increaseScore();
             eatingSound.play();
         }
