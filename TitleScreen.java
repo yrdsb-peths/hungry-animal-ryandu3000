@@ -47,10 +47,8 @@ public class TitleScreen extends World
     private void prepare()
     {
         Bear bear = new Bear();
-        addObject(bear,433,233);
-        Banana banana = new Banana();
-        addObject(banana,221,229);
-        bear.setLocation(361,225);
-        banana.setLocation(231,225);
+        addObject(bear,352,240);
+        Decoration decoration = new Decoration();
+        addObject(decoration,238,233);
     }
 }
