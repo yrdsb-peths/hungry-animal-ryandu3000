@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     public int score = 0;
     Label scoreLabel;
+    Label slideLabel = new Label("Slide \u2193", 40);
     int level = 1;
     GreenfootSound backgroundMusic = new GreenfootSound("background.mp3");
     GreenfootSound gameOverMusic = new GreenfootSound("gameover.mp3");
@@ -30,6 +31,8 @@ public class MyWorld extends World
         // Create a label
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
+        
+        addObject(slideLabel, 530,30);
         
         createBamboo();
         backgroundMusic.playLoop();
@@ -66,7 +69,6 @@ public class MyWorld extends World
             }
         }
     }
-    
     /**
      * Create a new banana at random location at top the screen
      */

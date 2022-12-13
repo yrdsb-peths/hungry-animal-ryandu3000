@@ -11,6 +11,8 @@ public class TitleScreen extends World
     Label titleLabel = new Label("Hungry Panda", 80);
     Label label = new Label("Press <space> to Start", 40);
     Label label2 = new Label("Use \u2190 \u2192 to Move", 40);
+    
+    GreenfootSound introMusic = new GreenfootSound("intro.mp3");
 
     /**
      * Constructor for objects of class TitleScreen.
@@ -32,10 +34,12 @@ public class TitleScreen extends World
      */
     public void act()
     {
+        introMusic.playLoop();
         // Start game if user presses the space bar
         if(Greenfoot.isKeyDown("space"))
         {
             MyWorld gameWorld = new MyWorld();
+            introMusic.stop();
             Greenfoot.setWorld(gameWorld);
         }
     }

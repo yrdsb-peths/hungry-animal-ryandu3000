@@ -11,13 +11,12 @@ public class Panda extends Actor
     GreenfootSound eatingSound = new GreenfootSound("eating.mp3");
     GreenfootImage[] frameLeft = new GreenfootImage[3];
     GreenfootImage[] frameRight = new GreenfootImage[3];
-
     
     // Direction the panda is facing
     String facing = "left";
     SimpleTimer animationTimer = new SimpleTimer();
-    SimpleTimer cooldown = new SimpleTimer();
-    Boolean slideActive = false;
+    int timerTime = 180;
+    Boolean slideActive = true;
     
     public Panda()
     {
@@ -73,27 +72,27 @@ public class Panda extends Actor
             facing = "right";
         }
         
-        
         if(slideActive)
         {
             if(Greenfoot.isKeyDown("down"))
             {
-                    if(facing.equals("right"))
+                if(facing.equals("right"))
                     {
-                        move(20);
+                        setLocation(getX()+200,getY());
                         slideActive = false;
+                        timerTime = 3* 60;
                     }
                     else
                     {
-                        move(-20);
+                        setLocation(getX()-200,getY());
                         slideActive = false;
+                        timerTime = 3* 60;
                     }
             }
         }
         else
         {
-            cooldown.mark();
-            if(cooldown.millisElapsed() >= 500)
+            if(timerTime == 0)
             {
                 slideActive = true;
             }
@@ -101,7 +100,7 @@ public class Panda extends Actor
         
         // Remove bamboo if panda eats it
         eat();
-        
+        timerTime--;
         // Animate the panda
         animatePanda();
     }
