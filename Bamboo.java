@@ -12,7 +12,7 @@ public class Bamboo extends Actor
     
     public void act()
     {
-        // Add your action code here.
+        // Spawns a bamboo at a random location on the top and drops it
         int x = getX();
         int y = getY() + speed;
         setLocation(x,y);
@@ -26,6 +26,7 @@ public class Bamboo extends Actor
         }
     }
     
+    // Changes the speed
     public void setSpeed(int spd)
     {
         speed = spd;

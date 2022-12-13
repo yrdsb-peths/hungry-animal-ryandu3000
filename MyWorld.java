@@ -8,13 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    int level = 1;
+    
+    // Labels
     public int score = 0;
     Label scoreLabel;
     Label slideLabel = new Label("Slide \u2193", 40);
-    int level = 1;
+    
+    
+    // Sounds
     GreenfootSound backgroundMusic = new GreenfootSound("background.mp3");
     GreenfootSound gameOverMusic = new GreenfootSound("gameover.mp3");
-
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -28,10 +33,9 @@ public class MyWorld extends World
         Panda panda = new Panda();
         addObject(panda, 300, 300);
         
-        // Create a label
+        // Labels
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
-        
         addObject(slideLabel, 530,30);
         
         createBamboo();
@@ -44,8 +48,9 @@ public class MyWorld extends World
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over", 100);
-        backgroundMusic.stop();
         addObject(gameOverLabel, 300, 200);
+        
+        backgroundMusic.stop();
         gameOverMusic.play();
     }
     
@@ -62,15 +67,15 @@ public class MyWorld extends World
         }
         if(score > 10)
         {
-            int c = Greenfoot.getRandomNumber(3);
-            if(c == 1)
+            int randNum = Greenfoot.getRandomNumber(3);
+            if(randNum == 1)
             {
                 createBomb();
             }
         }
     }
     /**
-     * Create a new banana at random location at top the screen
+     * Create a new bamboo at random location at top the screen
      */
     public void createBamboo()
     {
@@ -81,6 +86,9 @@ public class MyWorld extends World
         addObject(bamboo, x, y);
     }
     
+    /**
+     * Create a new bomb at random location at top the screen
+     */
     public void createBomb()
     {
         Bomb bomb = new Bomb();

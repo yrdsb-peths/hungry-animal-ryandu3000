@@ -1,23 +1,30 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The Bear who's always hungry.
+ * The Panda who's always hungry.
  * 
  * @author Ryan Du
  * @version November 2022
  */
 public class Panda extends Actor
 {
+    // Sounds
     GreenfootSound eatingSound = new GreenfootSound("eating.mp3");
+    
+    //Variables for the pandas animation
     GreenfootImage[] frameLeft = new GreenfootImage[3];
     GreenfootImage[] frameRight = new GreenfootImage[3];
+    SimpleTimer animationTimer = new SimpleTimer();
+    int imageIndex = 0;
     
     // Direction the panda is facing
     String facing = "left";
-    SimpleTimer animationTimer = new SimpleTimer();
+    
+    // Variables for the slide
     int timerTime = 180;
     Boolean slideActive = true;
     
+    // Panda animation
     public Panda()
     {
         for(int i = 0; i < frameLeft.length; i++)
@@ -39,7 +46,7 @@ public class Panda extends Actor
         setImage(frameLeft[0]);
     }
     
-    int imageIndex = 0;
+    // Panda animation pt 2
     public void animatePanda()
     {
         if(animationTimer.millisElapsed() < 150)
@@ -59,6 +66,8 @@ public class Panda extends Actor
             imageIndex = (imageIndex + 1) % frameRight.length;
         }
     }
+    
+    // Movement
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
@@ -97,14 +106,16 @@ public class Panda extends Actor
                 slideActive = true;
             }
         }
+        timerTime --;
         
         // Remove bamboo if panda eats it
         eat();
-        timerTime--;
+        
         // Animate the panda
         animatePanda();
     }
     
+    // Increases the score and spawns new bamboo
     public void eat()
     {
         if(isTouching(Bamboo.class))
