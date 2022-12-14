@@ -21,7 +21,7 @@ public class Panda extends Actor
     String facing = "left";
     
     // Variables for the slide
-    int timerTime = 180;
+    int timerTime = 120;
     Boolean slideActive = true;
     
     // Panda animation
@@ -89,13 +89,13 @@ public class Panda extends Actor
                     {
                         setLocation(getX()+200,getY());
                         slideActive = false;
-                        timerTime = 3* 60;
+                        timerTime = 2* 60;
                     }
                     else
                     {
                         setLocation(getX()-200,getY());
                         slideActive = false;
-                        timerTime = 3* 60;
+                        timerTime = 2* 60;
                     }
             }
         }
