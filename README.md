@@ -12,3 +12,8 @@ This particular repository is the starting template for the Hungry Elephant tuto
 [Part 2: Game Enhancements](https://youtu.be/TwID9i0Ey6o)
 
 [Part 3: Final Touches](https://youtu.be/GT-eFwa4Abc)
+
+Features
+- Added game background sounds
+- Added a bomb 
+- Added a slide mechanic
