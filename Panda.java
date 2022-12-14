@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The Panda who's always hungry.
+ * The Panda who's always hungry, the hero of the game.
  * 
  * @author Ryan Du
  * @version November 2022
